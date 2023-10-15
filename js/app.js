@@ -24,19 +24,24 @@
   const auth = getAuth();
 
 
-    var username = document.getElementById("username");
+    var fName = document.getElementById("fName");
+    var lName = document.getElementById("lName");
+    var address = document.getElementById("address");
     var email = document.getElementById("email");
     var password = document.getElementById("password");
-    var confPwd = document.getElementById("conf-pwd");
     let message = document.getElementById("message");
    
     window.signup = function (e) {
         e.preventDefault();
 
-        if (/\s/.test(username.value)) {
+        if (/\s/.test(fName.value)) {
             alert("Username cannot contain spaces");
             return;
         }
+        if (/\s/.test(lName.value)) {
+          alert("Username cannot contain spaces");
+          return;
+      }
     
         // Validation for password
         const passwordRegex = /^(?=.*\d)(?=.*[A-Z])(?=.*[!@#$%^&*()_+])(?=.*[a-z]).{8,}$/;
@@ -46,11 +51,11 @@
         }
     
         // Validation for matching password and confirm password
-        if (password.value !== confPwd.value) {
-            message.textContent="Passwords dont match";
-            message.style.background="red"
-            return;
-        }
+        // if (password.value !== confPwd.value) {
+        //     message.textContent="Passwords dont match";
+        //     message.style.background="red"
+        //     return;
+        // }
     
         // Validation for email format
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
