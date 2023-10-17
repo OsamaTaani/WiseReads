@@ -120,14 +120,16 @@ window.signin = async function (e) {
                           }
                       })
                       .catch(error => console.error("Error adding user data:", error));
-              });
+                      
+                      window.location.href = "../html/index.html";
+                    });
           })
           .catch((error) => {
               console.error("Error getting user details: ", error);
           });
 
       // You can redirect the user or perform additional actions after successful login
-      // window.location.href = "/";
+      // 
   } catch (error) {
       alert("Error: " + error.message);
   };
